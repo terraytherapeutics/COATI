@@ -15,7 +15,7 @@ Before installation, we recommend to first setup a Python virtual environment.
 ```bash
 $ git clone https://github.com/terraytherapeutics/COATI.git
 $ cd COATI
-$ pip install -e .
+$ pip install .
 ```
 
 # Examples
