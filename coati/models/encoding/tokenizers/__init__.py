@@ -25,4 +25,4 @@ def get_vocab(vocab_name: str) -> Dict[str, List[str]]:
     try:
         return load_vocab(vocab_name)
     except:
-        pass
+        raise ValueError(f"vocab_name {vocab_name} not found in vocabs folder")

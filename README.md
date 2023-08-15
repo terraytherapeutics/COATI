@@ -29,6 +29,8 @@ $ pip install .
 
 The various models in the paper can be initialied using, e.g.,
 ```
+from coati.models.io import load_e3gnn_smiles_clip_e2e
+
 encoder, tokenizer = load_e3gnn_smiles_clip_e2e(
     freeze=True,
     device=torch.device("cuda:0"),

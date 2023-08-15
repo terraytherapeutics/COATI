@@ -5,6 +5,10 @@ __pycache__/
 
 .vscode/
 
+examples/simple_mol_generation/.ipynb_checkpoints
+examples/metadynamics/.ipynb_checkpoints
+
+
 *.DS_Store*
 
 # large files 
