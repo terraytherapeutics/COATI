@@ -27,7 +27,7 @@ requirements = [
 ]
 
 setup(
-    authors="John Parkhill 🧙‍♂️, Edward Williams 🧟‍♂️, Carl Underkoffler 👨‍🎤, Ben Kaufman 🧑🏻‍💻, Ryan Pederson",
+    authors="John Parkhill 🧙‍♂️, Edward Williams 🧟‍♂️, Carl Underkoffler 👨‍🎤, Ben Kaufman 🧑🏻‍💻, Ryan Pederson 🦦",
     author_email="jparkhill@terraytx.com",
     python_requires=">=3.8",
     classifiers=[
