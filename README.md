@@ -39,6 +39,7 @@ encoder, tokenizer = load_e3gnn_smiles_clip_e2e(
 )
 ```
 where we provide the following models (`doc_url`) with labels corresponding to their description in the paper:
+(recommended grande_closed)
 ```
 s3://terray-public/models/tall_closed.pkl
 s3://terray-public/models/grande_closed.pkl
