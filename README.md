@@ -53,3 +53,5 @@ s3://terray-public/models/selfies_barlow.pkl
 
 
 # Cite
+
+If you use COATI in your research, please cite our paper: [COATI: multi-modal contrastive pre-training for representing and traversing chemical space](https://doi.org/10.26434/chemrxiv-2023-bdkgm).
