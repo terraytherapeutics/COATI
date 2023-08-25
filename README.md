@@ -54,3 +54,4 @@ s3://terray-public/models/selfies_barlow.pkl
 
 
 # Cite
+https://chemrxiv.org/engage/chemrxiv/article-details/64e8137fdd1a73847f73f7aa
