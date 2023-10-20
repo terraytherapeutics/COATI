@@ -73,6 +73,14 @@ def sync_s3_to_local(bucket_name, prefix, verbose=True):
     return local_file_path
 
 
+def download_from_s3(s3_path):
+    """Simple download from s3 to local file"""
+
+    bucket_name, prefix = split_s3_path(s3_path)
+    local_file_path = sync_s3_to_local(bucket_name, prefix, verbose=True)
+    return local_file_path
+
+
 class cache_read:
     VALID_MODES = ["rb", "r"]
     """Given full s3_uri with bucket name, sync it locally if needed, open it"""
