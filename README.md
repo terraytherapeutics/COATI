@@ -88,6 +88,20 @@ s3://terray-public/datasets/tox21.pkl
 s3://terray-public/datasets/vdss_lombardo.pkl
 ```
 
+These can be retrieved e.g. via
+```python
+import pickle
+from coati.common.s3 import download_from_s3
+
+download_from_s3("s3://terray-public/datasets/delaney.pkl")
+
+# datasets are available as pickle files (list of dictionaries)
+with open("./datasets/delaney.pkl", "rb") as f:
+    delaney = pickle.load(f)
+
+delaney[0].keys()
+```
+
 # Cite
 
 If you use COATI in your research, please cite our paper: [COATI: multi-modal contrastive pre-training for representing and traversing chemical space](https://doi.org/10.26434/chemrxiv-2023-bdkgm).
