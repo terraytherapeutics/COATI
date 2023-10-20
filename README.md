@@ -52,6 +52,41 @@ s3://terray-public/models/grande_open.pkl
 s3://terray-public/models/selfies_barlow.pkl
 ```
 
+# Datasets
+
+Processed versions of public ADMET datasets with embeddings are made available:
+```
+s3://terray-public/datasets/ames.pkl
+s3://terray-public/datasets/bace_classification.pkl
+s3://terray-public/datasets/bace_regression.pkl
+s3://terray-public/datasets/bioavailability_ma.pkl
+s3://terray-public/datasets/caco2_wang.pkl
+s3://terray-public/datasets/chembl_canonical_smiles.pkl
+s3://terray-public/datasets/clearance_hepatocyte_az.pkl
+s3://terray-public/datasets/clearance_microsome_az.pkl
+s3://terray-public/datasets/clintox.pkl
+s3://terray-public/datasets/cyp1a2_veith.pkl
+s3://terray-public/datasets/cyp2c19_veith.pkl
+s3://terray-public/datasets/cyp2c9_veith.pkl
+s3://terray-public/datasets/cyp2d6_veith.pkl
+s3://terray-public/datasets/cyp3a4_veith.pkl
+s3://terray-public/datasets/delaney.pkl
+s3://terray-public/datasets/dili.pkl
+s3://terray-public/datasets/half_life_obach.pkl
+s3://terray-public/datasets/herg.pkl
+s3://terray-public/datasets/herg_inhib.pkl
+s3://terray-public/datasets/herg_karim.pkl
+s3://terray-public/datasets/hia_hou.pkl
+s3://terray-public/datasets/hiv.pkl
+s3://terray-public/datasets/ld50_zhu.pkl
+s3://terray-public/datasets/lipophilicity_astrazeneca.pkl
+s3://terray-public/datasets/pampa_ncats.pkl
+s3://terray-public/datasets/pgp_broccatelli.pkl
+s3://terray-public/datasets/ppbr_az.pkl
+s3://terray-public/datasets/solubility_aqsoldb.pkl
+s3://terray-public/datasets/tox21.pkl
+s3://terray-public/datasets/vdss_lombardo.pkl
+```
 
 # Cite
 
