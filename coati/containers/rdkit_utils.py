@@ -232,7 +232,6 @@ def mol_standardize(mol: Chem.Mol) -> Optional[Chem.Mol]:
 
     # # uncharged mol
 
-
     if res_mol.GetNumAtoms():
         # largest component
         frag_list = list(Chem.GetMolFrags(res_mol, asMols=True))

@@ -3,6 +3,7 @@ import os
 import pytz
 from urllib.parse import urlparse
 
+from tqdm import tqdm
 import boto3
 from botocore import UNSIGNED
 from botocore.client import Config
@@ -71,6 +72,21 @@ def sync_s3_to_local(bucket_name, prefix, verbose=True):
             print(f"File downloaded successfully to {local_file_path}")
 
     return local_file_path
+
+
+def copy_bucket_dir_from_s3(bucket_dir, dest_dir):
+    s3_resource = boto3.resource("s3")
+    bucket = s3_resource.Bucket("terray-public")
+    nfiles = len(list(bucket.objects.filter(Prefix=bucket_dir)))
+    if nfiles < 1:
+        print(list(bucket.objects.filter(Prefix=bucket_dir)))
+        raise Exception(f"empty_s3 {bucket_dir}")
+    else:
+        print(f"copying {nfiles} files from {bucket_dir} to {dest_dir}")
+    for obj in tqdm(bucket.objects.filter(Prefix=bucket_dir), total=nfiles):
+        if not os.path.exists(os.path.dirname(dest_dir + obj.key)):
+            os.makedirs(os.path.dirname(dest_dir + obj.key))
+        bucket.download_file(obj.key, dest_dir + obj.key)  # save to same path
 
 
 def download_from_s3(s3_path):
