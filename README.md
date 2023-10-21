@@ -25,6 +25,25 @@ $ pip install .
 - Molecule generation analysis with Chembl dataset: `examples/simple_mol_generation/chembl_analysis.ipynb`.
 - Metadynamics approach to molecular design: `examples/metadynamics/metadynamics.ipynb`.
 
+# Model Training
+Training is setup for `torch.nn.parallel.DistributedDataParallel` on a multi-gpu machine. 
+
+- Example training script: `examples/training/train_grande.py`. Some notable arguments:
+```
+  # resume from checkpoint file
+    # args.resume_document = ''
+
+    args.ngrad_to_save = 2e6
+
+    # output logs
+    args.output_dir = "./logs/"
+    # where to save model checkpoints
+    args.model_dir = "./model_ckpts/"
+    # where to save dataset cache
+    args.data_dir = "./"
+```
+If not found in `args.data_dir` the routine will ask for confirmation before trying to download the training dataset from `s3://terray-public/datasets/coati_data/`.
+
 # Models in the paper
 
 The various models in the paper can be initialied using, e.g.,
