@@ -39,6 +39,14 @@ def embed_smiles(
             print("embed_smiles exception: ", Ex)
     return batch_embeds[0]
 
+def embed_smiles_batch(smiles_list: List[str], encoder: e3gnn_smiles_clip_e2e, tokenizer: TrieTokenizer) -> torch.Tensor:
+    batch_tokens = torch.tensor(
+        [tokenizer.tokenize_text("[SMILES]" + s + "[STOP]", pad=True) for s in smiles_list],
+        device=encoder.device,
+        dtype=torch.int,
+    )
+    batch_embeds = encoder.encode_tokens(batch_tokens, tokenizer)
+    return batch_embeds
 
 def purify_vector(
     V: torch.Tensor, encoder: e3gnn_smiles_clip_e2e, tokenizer: TrieTokenizer, n_rep=128
