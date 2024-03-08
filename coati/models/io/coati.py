@@ -1,7 +1,9 @@
 import pickle
 from typing import Tuple
+from io import BytesIO
 
 import torch.nn as nn
+import torch
 
 from coati.common.s3 import cache_read
 from coati.models.encoding.clip_e2e import e3gnn_smiles_clip_e2e
@@ -9,6 +11,15 @@ from coati.models.encoding.clip_fp_e2e import e3gnn_smiles_clip_e2e as fp_e2e_mo
 from coati.models.encoding.clip_e2e_selfies import to_selfies_tokenizer
 from coati.models.encoding.tokenizers import get_vocab
 from coati.models.encoding.tokenizers.trie_tokenizer import TrieTokenizer
+
+
+
+class CPU_Unpickler(pickle.Unpickler):
+    def find_class(self, module, name):
+        if module == "torch.storage" and name == "_load_from_bytes":
+            return lambda b: torch.load(BytesIO(b), map_location="cpu")
+        else:
+            return super().find_class(module, name)
 
 
 def load_e3gnn_smiles_clip_e2e(
@@ -28,7 +39,10 @@ def load_e3gnn_smiles_clip_e2e(
     print(f"Loading model from {doc_url}")
 
     with cache_read(doc_url, "rb") as f_in:
-        model_doc = pickle.loads(f_in.read(), encoding="UTF-8")
+        if device == "cpu":
+            model_doc = CPU_Unpickler(f_in, encoding="UTF-8").load()
+        else:
+            model_doc = pickle.loads(f_in.read(), encoding="UTF-8")
     model_kwargs = model_doc["model_kwargs"]
 
     if print_debug:
