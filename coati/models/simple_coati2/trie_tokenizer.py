@@ -5,7 +5,7 @@ import json
 import torch
 
 from coati.common.util import colored_background
-from coati.models.simple_coati2.trie import Trie
+from coati.models.encoding.tokenizers.trie import Trie
 
 
 class TrieTokenizer:
