@@ -22,7 +22,7 @@ $ pip install .
 
 We have released a COATI2 with updated weights. COATI2 was trained with ~2x more data, a chiral-aware 3D encoder, and a new vocabularity that also allows controlled generation of several properties. The embedding dimension has also been bumped up to 512 (previously 256). 
 
-For a basic usage example see: `examples/coati2/tutorial.ipynb`.
+For a basic usage example see: `examples/tutorial_simple_gen.ipynb` and `examples/coati2/tutorial.ipynb`.
 
 
 The training scripts and 3D encoder are not available for COATI2. 
